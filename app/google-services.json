@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "140371001300",
+    "project_id": "oreo-4ec90",
+    "storage_bucket": "oreo-4ec90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140371001300:android:c6b9739ea14175db552041",
+        "android_client_info": {
+          "package_name": "com.example.oreo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtAHNRtVUZFbNqiFOOCvYrgoJYmUQnRWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
