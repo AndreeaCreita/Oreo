@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var button: Button
+    private lateinit var customButton: Button
     private lateinit var textView: TextView
     private var user: FirebaseUser? = null
 
@@ -23,10 +24,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.hide()
         Log.d("MainActivity", "onCreate called")
 
         auth = Firebase.auth
         button = findViewById(R.id.logout)
+        customButton = findViewById(R.id.custom_button)
         textView = findViewById(R.id.user_details)
 
         user = auth.currentUser
@@ -48,6 +51,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, Login::class.java)
             startActivity(intent)
             finish()
+        }
+
+        customButton.setOnClickListener {
+            Log.d("MainActivity", "Custom button clicked")
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 

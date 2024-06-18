@@ -1,5 +1,5 @@
 <!-- res/color/text_color_selector.xml -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" android:color="@android:color/white"/>
+    <item android:state_pressed="true" android:color="#E7EC5E"/>
     <item android:color="@android:color/black"/>
 </selector>
