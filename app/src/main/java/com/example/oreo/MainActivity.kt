@@ -42,7 +42,9 @@ class MainActivity : AppCompatActivity() {
             finish()
         } else {
             Log.d("MainActivity", "User logged in: ${user?.email}")
-            textView.text = getUserUidFromSharedPreferences() ?: "No UID found"
+            val userUid = getUserUidFromSharedPreferences()
+            Log.d("MainActivity", "Retrieved UID from SharedPreferences: $userUid")
+            textView.text = userUid ?: "No UID found"
         }
 
         button.setOnClickListener {

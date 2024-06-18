@@ -103,6 +103,7 @@ class Login : AppCompatActivity() {
     private fun saveUidToSharedPreferences(uid: String) {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
+        Log.d(TAG, "Saving UID to SharedPreferences: $uid")
         editor.putString("UID", uid)
         editor.apply()
     }
