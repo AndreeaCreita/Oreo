@@ -1,6 +1,6 @@
 package com.example.oreo
 
-
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         } else {
             Log.d("MainActivity", "User logged in: ${user?.email}")
-            textView.text = user?.email ?: "Unknown"
+            textView.text = getUserUidFromSharedPreferences() ?: "No UID found"
         }
 
         button.setOnClickListener {
@@ -49,5 +49,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun getUserUidFromSharedPreferences(): String? {
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("UID", "No UID found")
     }
 }

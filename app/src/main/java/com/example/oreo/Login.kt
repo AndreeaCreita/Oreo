@@ -1,6 +1,7 @@
 package com.example.oreo
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -74,6 +75,10 @@ class Login : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     if (task.isSuccessful) {
                         Log.d(TAG, "signInWithEmail:success")
+                        val user = auth.currentUser
+                        user?.let {
+                            saveUidToSharedPreferences(it.uid)
+                        }
                         val intent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -93,5 +98,12 @@ class Login : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun saveUidToSharedPreferences(uid: String) {
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("UID", uid)
+        editor.apply()
     }
 }
